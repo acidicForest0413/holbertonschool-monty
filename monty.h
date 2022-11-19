@@ -1,13 +1,10 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-/* Libraries */
 #include <stdio.h>
 #include <stdlib.h>
-#include <fcntl.h>
-#include <ctype.h>
 #include <string.h>
-#include <stddef.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -18,11 +15,11 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
-typedef struct stack_s
+typedef struct toy_stack_s
 {
 	int n;
-	struct stack_s *prev;
-	struct stack_s *next;
+	struct toy_stack_s *prev;
+	struct toy_stack_s *next;
 } stack_t;
 
 /**
@@ -40,37 +37,23 @@ typedef struct instruction_s
 } instruction_t;
 
 /**
- * struct arg - argument for the current opcode
- * @argument: the arguments of the string
- *
- * Description: global structure used to pass data around the functions easily
+ * struct global_variable - opcoode and its function
+ * @file: the opcode
+ * @push_arg: function to handle the opcode
+ * @buffer: pointer to
+ * Description: opcode and its function
+ * for stack, queues, LIFO, FIFO Holberton project
  */
-typedef struct arg
-{
-	char *argument;
-} arg;
-arg Arg;
+void readFile(FILE *filename, stack_t **top_stack);
+int _isnumber(char *str);
+void get_opcode(char *opcode, stack_t **stack, unsigned int lineNb);
+void free_memory(stack_t *head);
 
-#define OPCODES\
-{					\
-	{"push", push},			\
-	{"pall", pall},			\
-	{"pint", pint},			\
-	{"pop", pop},			\
-	{"swap", swap},			\
-	{"add", add},			\
-	{"nop", nop},			\
-	{NULL, NULL}			\
-}
-
-/* Function Prototypes */
-void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number);
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
-void add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
-
+void _push(char *str, stack_t **head_stack, unsigned int line_number);
+void _pall(stack_t **head_stack, unsigned int line_number);
+void _pint(stack_t **head_stack, unsigned int line_number);
+void _pop(stack_t **head_stack, unsigned int line_number);
+void _swap(stack_t **stack, unsigned int line_number);
+void _nop(stack_t **stack, unsigned int line_number);
+void _add(stack_t **head_stack, unsigned int line_number);
 #endif
