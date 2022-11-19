@@ -10,7 +10,7 @@ void _pint(stack_t **head_stack, unsigned int line_number)
 	stack_t *cursor;
 
 	cursor = *head_stack;
-	UNUSED(line_number);
+	(void) line_number;
 
 	if (head_stack == NULL || *head_stack == NULL)
 	{
