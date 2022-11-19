@@ -1,23 +1,22 @@
 #include "monty.h"
+
 /**
- * _pall - Function to display the status of stack
- * @head_stack: pointer to node
- * @line_number:number of line option code
- * Return: index nombre node
+ * pall - print stack_t.n from beginning to end of stack_t list
+ * @stack: pointer to stack
+ * @line_number: line number of .m file where opcode occurs
  */
-void _pall(stack_t **head_stack, unsigned int line_number)
+void pall(stack_t **stack, unsigned int line_number)
 {
-	int index = 0;
-	stack_t *cursor;
+	int len = 0;
+	stack_t *temp;
 
-	cursor = *head_stack;
+	temp = *stack;
+	(void) line_number;
 
-	UNUSED(line_number);
-	while (cursor)
+	while (temp != NULL)
 	{
-		if (cursor != NULL)
-		printf("%d\n", cursor->n);
-		index++;
-		cursor = cursor->next;
+		printf("%d\n", (temp)->n);
+		++len;
+		temp = (temp)->next;
 	}
 }
