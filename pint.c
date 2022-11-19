@@ -1,24 +1,20 @@
 #include "monty.h"
 
 /**
- * _pint - prints the value at the top of the stack
- * @head_stack: pointer to node
- * @line_number:number of line option code
+ * pint - prints the value at the top of the stack
+ * @stack: stack that is given
+ * @line_number: line counter
+ *
+ * Return: void
  */
-void _pint(stack_t **head_stack, unsigned int line_number)
+
+void pint(stack_t **stack, unsigned int line_number)
 {
-	stack_t *cursor;
-
-	cursor = *head_stack;
-	(void) line_number;
-
-	if (head_stack == NULL || *head_stack == NULL)
+	if (!stack || !(*stack))
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
+		return;
 	}
-	else
-	{
-		printf("%d\n", cursor->n);
-	}
+	printf("%d\n", (*stack)->n);
 }
