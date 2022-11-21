@@ -7,7 +7,7 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	char *arg = arg, argument;
+	char *arg = arg;
 	int data, i;
 	stack_t *element;
 
