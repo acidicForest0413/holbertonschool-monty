@@ -1,12 +1,17 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <fcntl.h>
-#include <ctype.h>
 #include <string.h>
-#include <stddef.h>
+#include <stdarg.h>
+#include <unistd.h>
+#include <ctype.h>
+#include <fcntl.h>
+#define UNUSED(x) (void)(x)
+
+/*provided data structs */
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -17,6 +22,7 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
+
 typedef struct stack_s
 {
 	int n;
