@@ -10,7 +10,16 @@ void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 {
 	/* initialize i and instruction_t with opcodes */
 	int i = 0;
-	instruction_t opcodes[] = OPCODES;
+	instruction_t opcodes[] = 
+	{
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"add", add},
+		{"nop", nop},
+	}
 
 	/* loop */
 	while (opcodes[i].opcode)
