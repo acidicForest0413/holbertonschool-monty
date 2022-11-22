@@ -41,32 +41,32 @@ int main(int argc, char **argv)
 			line_number++;
 			continue;
 		}
-	opcode = strtok(line, " \t\n"); /* set opcode to first token of strtok */
+		opcode = strtok(line, " \t\n"); /* set opcode to first token of strtok */
 
-	}
-	if (!opcode) /* check for strtok fail */
-	{
+		if (!opcode) /* check for strtok fail */
+		{
+			line_number++;
+			continue;
+		}
+		Arg.argument = strtok(NULL, " \t\n");
+
+		execute_opcode(opcode, &STACK, line_number);
 		line_number++;
-		continue;
 	}
-	Arg.argument = strtok(NULL, " \t\n");
 
-	execute_opcode(opcode, &STACK, line_number);
-	line_number++;
-}
-free(line); /* free line */
+	free(line); /* free line */
 
-if (STACK != NULL) /* free stack */
-{
-	while (STACK != NULL)
+	if (STACK != NULL) /* free stack */
 	{
-		temp = STACK;
-		STACK = temp->next;
-		free(temp);
+		while (STACK != NULL)
+		{
+			temp = STACK;
+			STACK = temp->next;
+			free(temp);
+		}
 	}
-}
 
-fclose(fd); /* close file */
+	fclose(fd); /* close file */
 
-exit(EXIT_SUCCESS); /* exit */
+	exit(EXIT_SUCCESS); /* exit */
 }
