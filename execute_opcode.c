@@ -19,9 +19,11 @@ void execute_opcode(char *opcode, stack_t **stack, unsigned int line_number)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
-	}
 
-	/* loop */
+	};
+
+	/*loop */
+	
 	while (opcodes[i].opcode)
 	{
 		/* string compare opcode with instruction_t list of opcodes */
