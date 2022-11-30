@@ -1,6 +1,7 @@
 #include "monty.h"
 
-char **Arg;
+char *arg;
+const char delims[] = " \t\n";
 
 /**
  * main - entry point
@@ -44,7 +45,7 @@ int main(int argc, char **argv)
 			continue;
 		}
 		opcode = strtok(line, " \t\n"); /* set opcode to first token of strtok */
-		Arg = strtok(Null, delims);
+		arg = strtok(NULL, delims);
 
 		if (!opcode) /* check for strtok fail */
 		{

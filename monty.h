@@ -2,7 +2,7 @@
 #define MONTY_H
 
 /* global */
-char ** Arg;
+char *arg;
 
 #include <unistd.h>
 #include <stdio.h>
