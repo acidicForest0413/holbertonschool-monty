@@ -1,5 +1,5 @@
 #include "monty.h"
-
+char **Arg;
 /**
  * main - entry point
  * @argc: argument count
@@ -42,6 +42,7 @@ int main(int argc, char **argv)
 			continue;
 		}
 		opcode = strtok(line, " \t\n"); /* set opcode to first token of strtok */
+		Arg = strtok (Null, delims);
 
 		if (!opcode) /* check for strtok fail */
 		{
